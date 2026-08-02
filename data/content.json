@@ -1,0 +1,172 @@
+{
+  "about": {
+    "headline": "Editor & Designer crafting scroll-stopping visuals since 2019.",
+    "bio": "I'm a freelance video editor and graphic designer who helps creators, brands, and businesses turn raw footage and rough ideas into polished, high-converting content. My work blends rhythm-driven editing with clean, intentional design — built to hold attention in the first two seconds and hold up under a brand's scrutiny.",
+    "yearsExperience": 6,
+    "projectsCompleted": 420,
+    "happyClients": 180,
+    "skills": [
+      { "name": "Video Editing", "level": 96 },
+      { "name": "Motion Graphics", "level": 90 },
+      { "name": "Color Grading", "level": 88 },
+      { "name": "Graphic Design", "level": 92 },
+      { "name": "Thumbnail Design", "level": 94 },
+      { "name": "Branding", "level": 85 }
+    ]
+  },
+  "services": [
+    {
+      "id": "svc-1",
+      "title": "Video Editing",
+      "description": "Long-form and short-form editing with pacing, sound design, and color that keeps viewers watching.",
+      "price": "From $150 / video",
+      "features": ["Pacing & story structure", "Sound design & SFX", "Color grading", "2 rounds of revisions"],
+      "icon": "Film"
+    },
+    {
+      "id": "svc-2",
+      "title": "Motion Graphics",
+      "description": "Custom animated titles, lower thirds, and kinetic typography that make your brand move.",
+      "price": "From $120 / project",
+      "features": ["Custom animation", "Brand-matched motion", "Source files included"],
+      "icon": "Sparkles"
+    },
+    {
+      "id": "svc-3",
+      "title": "Thumbnail Design",
+      "description": "High-CTR thumbnails engineered around curiosity, contrast, and clarity.",
+      "price": "From $35 / thumbnail",
+      "features": ["A/B variant options", "Fast 24h turnaround", "Unlimited concepts"],
+      "icon": "Image"
+    },
+    {
+      "id": "svc-4",
+      "title": "Graphic Design",
+      "description": "Posters, carousels, ads, and print-ready design with a consistent visual system.",
+      "price": "From $60 / design",
+      "features": ["Print & digital ready", "Source files", "Brand consistency"],
+      "icon": "PenTool"
+    },
+    {
+      "id": "svc-5",
+      "title": "Branding",
+      "description": "Logo, color system, and brand guidelines that make you instantly recognizable.",
+      "price": "From $400 / package",
+      "features": ["Logo suite", "Color & type system", "Brand guideline PDF"],
+      "icon": "Gem"
+    },
+    {
+      "id": "svc-6",
+      "title": "Social Media Design",
+      "description": "Templated, on-brand post systems so your feed always looks intentional.",
+      "price": "From $250 / month",
+      "features": ["Custom templates", "Monthly content batch", "Story & feed sizes"],
+      "icon": "Layers"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "t-1",
+      "name": "Sarah Chen",
+      "role": "Content Creator",
+      "company": "1.2M subscribers",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop",
+      "rating": 5,
+      "quote": "My retention jumped almost 30% after switching editors. The pacing and sound design just hit different."
+    },
+    {
+      "id": "t-2",
+      "name": "Marcus Reyes",
+      "role": "Founder",
+      "company": "Reyes Studio",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop",
+      "rating": 5,
+      "quote": "The rebrand and thumbnail system paid for itself in the first month. Click-through rate nearly doubled."
+    },
+    {
+      "id": "t-3",
+      "name": "Priya Nair",
+      "role": "Marketing Lead",
+      "company": "Northwind Co.",
+      "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop",
+      "rating": 5,
+      "quote": "Fast, communicative, and genuinely creative. Every deliverable felt like it came from an in-house team."
+    }
+  ],
+  "projects": [
+    {
+      "id": "p-1",
+      "slug": "midnight-vlog-series",
+      "title": "Midnight Vlog Series",
+      "category": "YouTube Editing",
+      "coverImage": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&h=800&fit=crop",
+      "videoUrl": "",
+      "client": "Sarah Chen",
+      "result": "+28% average watch time",
+      "software": ["Premiere Pro", "DaVinci Resolve", "After Effects"],
+      "description": "A weekly vlog series edited for rhythm and story, with custom sound design and a consistent color language across 40+ episodes.",
+      "gallery": [
+        "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&h=800&fit=crop"
+      ],
+      "featured": true,
+      "createdAt": "2026-05-01"
+    },
+    {
+      "id": "p-2",
+      "slug": "reyes-studio-rebrand",
+      "title": "Reyes Studio Rebrand",
+      "category": "Logo Design",
+      "coverImage": "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1200&h=800&fit=crop",
+      "beforeImage": "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1200&h=800&fit=crop",
+      "afterImage": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1200&h=800&fit=crop",
+      "client": "Reyes Studio",
+      "result": "Full brand identity delivered in 3 weeks",
+      "software": ["Illustrator", "Photoshop", "Figma"],
+      "description": "Complete brand identity redesign including logo suite, color system, and guideline documentation.",
+      "gallery": [
+        "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1200&h=800&fit=crop"
+      ],
+      "featured": true,
+      "createdAt": "2026-04-12"
+    },
+    {
+      "id": "p-3",
+      "slug": "viral-shorts-batch",
+      "title": "Viral Shorts Batch",
+      "category": "Shorts Editing",
+      "coverImage": "https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=1200&h=800&fit=crop",
+      "client": "Northwind Co.",
+      "result": "3.4M combined views",
+      "software": ["Premiere Pro", "CapCut"],
+      "description": "A batch of 20 short-form vertical edits optimized for retention and shareability across Reels, TikTok, and Shorts.",
+      "gallery": [
+        "https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=1200&h=800&fit=crop"
+      ],
+      "featured": true,
+      "createdAt": "2026-06-02"
+    },
+    {
+      "id": "p-4",
+      "slug": "high-ctr-thumbnail-pack",
+      "title": "High-CTR Thumbnail Pack",
+      "category": "Thumbnail Design",
+      "coverImage": "https://images.unsplash.com/photo-1611162458324-aae1eb4129a4?w=1200&h=800&fit=crop",
+      "client": "Sarah Chen",
+      "result": "CTR up from 4.1% to 7.8%",
+      "software": ["Photoshop"],
+      "description": "A set of 12 thumbnails designed around curiosity gaps, bold contrast, and consistent branding.",
+      "gallery": [
+        "https://images.unsplash.com/photo-1611162458324-aae1eb4129a4?w=1200&h=800&fit=crop"
+      ],
+      "featured": false,
+      "createdAt": "2026-03-20"
+    }
+  ],
+  "contact": {
+    "email": "hello@example.com",
+    "whatsapp": "https://wa.me/10000000000",
+    "instagram": "https://instagram.com/yourhandle",
+    "linkedin": "https://linkedin.com/in/yourhandle",
+    "resumeUrl": "/resume.pdf"
+  }
+}
