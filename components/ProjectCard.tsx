@@ -20,6 +20,7 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
     >
       <Link
         href={`/portfolio/${project.slug}`}
+        data-cursor-hover
         onMouseEnter={() => {
           setHovered(true);
           videoRef.current?.play().catch(() => {});
@@ -28,14 +29,16 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
           setHovered(false);
           videoRef.current?.pause();
         }}
-        className="group relative block overflow-hidden rounded-2xl glass aspect-[4/3]"
+        className={`group relative block overflow-hidden rounded-2xl glass aspect-[4/3] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+          hovered ? "-translate-y-1.5 shadow-[0_0_32px_6px_rgba(168,85,247,0.25)] border-purple-400/30" : ""
+        }`}
       >
         <div className="absolute inset-0 overflow-hidden">
           <Image
             src={project.coverImage}
             alt={project.title}
             fill
-            className={`object-cover transition-all duration-700 ${
+            className={`object-cover transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
               hovered ? "scale-110 opacity-0" : "scale-100 opacity-100"
             }`}
             sizes="(max-width: 768px) 100vw, 33vw"
@@ -46,9 +49,10 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
               muted
               loop
               playsInline
+              preload="metadata"
               src={project.videoUrl}
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
-                hovered ? "opacity-100" : "opacity-0"
+              className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                hovered ? "opacity-100 scale-105" : "opacity-0 scale-100"
               }`}
             />
           )}

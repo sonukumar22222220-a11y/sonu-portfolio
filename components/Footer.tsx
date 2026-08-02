@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Lock } from "lucide-react";
 import type { ContactContent } from "@/lib/types";
 
 export default function Footer({ contact }: { contact: ContactContent }) {
@@ -39,7 +40,14 @@ export default function Footer({ contact }: { contact: ContactContent }) {
       <div className="border-t border-line">
         <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/30">
           <span>© {new Date().getFullYear()} SONU SINGH RATHORE. All rights reserved.</span>
-          <Link href="/admin" className="hover:text-white/60 transition-colors">Admin</Link>
+          <Link
+            href="/admin"
+            data-cursor-hover
+            className="group inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-white/40 transition-all duration-300 hover:text-purple-300 hover:border-purple-400/40 hover:shadow-[0_0_16px_2px_rgba(168,85,247,0.35)]"
+          >
+            <Lock size={12} className="transition-colors duration-300 group-hover:text-purple-300" />
+            <span className="text-[11px] tracking-wide">Admin</span>
+          </Link>
         </div>
       </div>
     </footer>

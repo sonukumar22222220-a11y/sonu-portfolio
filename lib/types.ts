@@ -50,6 +50,7 @@ export interface Testimonial {
 export interface AboutContent {
   headline: string;
   bio: string;
+  profileImage: string;
   yearsExperience: number;
   projectsCompleted: number;
   happyClients: number;

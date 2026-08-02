@@ -1,6 +1,7 @@
 import { getContent } from "@/lib/data";
 import PageShell from "@/components/PageShell";
 import RevealSection from "@/components/RevealSection";
+import ProfileImageCard from "@/components/ProfileImageCard";
 
 export const dynamic = "force-dynamic";
 
@@ -13,13 +14,19 @@ export default async function AboutPage() {
   return (
     <PageShell contact={content.contact}>
       <section className="max-w-5xl mx-auto px-6 pb-24">
-        <RevealSection>
-          <div className="text-xs uppercase tracking-widest text-accent mb-4">About Me</div>
-          <h1 className="font-display text-4xl sm:text-5xl font-semibold tracking-tight leading-tight max-w-3xl">
-            {about.headline}
-          </h1>
-          <p className="mt-8 text-white/50 leading-relaxed max-w-2xl text-lg">{about.bio}</p>
-        </RevealSection>
+        <div className="grid md:grid-cols-[1.2fr_0.8fr] gap-12 md:gap-16 items-center">
+          <RevealSection>
+            <div className="text-xs uppercase tracking-widest text-accent mb-4">About Me</div>
+            <h1 className="font-display text-4xl sm:text-5xl font-semibold tracking-tight leading-tight">
+              {about.headline}
+            </h1>
+            <p className="mt-8 text-white/50 leading-relaxed text-lg">{about.bio}</p>
+          </RevealSection>
+
+          <RevealSection delay={0.1} className="mt-10 md:mt-0">
+            <ProfileImageCard src={about.profileImage} yearsExperience={about.yearsExperience} />
+          </RevealSection>
+        </div>
 
         <RevealSection delay={0.1} className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16">
           {[

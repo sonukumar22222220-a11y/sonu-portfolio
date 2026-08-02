@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { Save, Plus, Trash2 } from "lucide-react";
 import type { SiteContent } from "@/lib/types";
+import CloudinaryUploader from "@/components/CloudinaryUploader";
 
 const TABS = ["About", "Services", "Testimonials", "Contact"] as const;
 
@@ -89,6 +91,22 @@ export default function SettingsPage() {
               className={inputClass}
             />
           </Field>
+          <Field label="Profile Image">
+            <div className="flex items-center gap-4">
+              {content.about.profileImage && (
+                <div className="relative w-16 h-16 rounded-xl overflow-hidden shrink-0">
+                  <Image src={content.about.profileImage} alt="Profile" fill className="object-cover" />
+                </div>
+              )}
+              <div className="flex-1">
+                <CloudinaryUploader
+                  accept="image/*"
+                  label="Upload profile photo"
+                  onUploaded={(url) => setContent({ ...content, about: { ...content.about, profileImage: url } })}
+                />
+              </div>
+            </div>
+          </Field>
           <Field label="Bio">
             <textarea
               rows={5}
@@ -97,7 +115,7 @@ export default function SettingsPage() {
               className={inputClass}
             />
           </Field>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <Field label="Years Experience">
               <input type="number" value={content.about.yearsExperience} onChange={(e) => setContent({ ...content, about: { ...content.about, yearsExperience: Number(e.target.value) } })} className={inputClass} />
             </Field>
