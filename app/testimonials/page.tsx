@@ -3,6 +3,8 @@ import PageShell from "@/components/PageShell";
 import RevealSection from "@/components/RevealSection";
 import TestimonialCard from "@/components/TestimonialCard";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = { title: "Testimonials — SONU SINGH RATHORE" };
 
 export default async function TestimonialsPage() {

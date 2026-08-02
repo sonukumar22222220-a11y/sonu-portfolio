@@ -7,6 +7,8 @@ import PageShell from "@/components/PageShell";
 import RevealSection from "@/components/RevealSection";
 import BeforeAfterSlider from "./BeforeAfterSlider";
 
+export const dynamic = "force-dynamic";
+
 export async function generateStaticParams() {
   const content = await getContent();
   return content.projects.map((p) => ({ slug: p.slug }));

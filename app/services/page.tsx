@@ -4,6 +4,8 @@ import { getContent } from "@/lib/data";
 import PageShell from "@/components/PageShell";
 import RevealSection from "@/components/RevealSection";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = { title: "Services & Pricing — SONU SINGH RATHORE" };
 
 const ICONS: Record<string, any> = { Film, Sparkles, Image: ImageIcon, PenTool, Gem, Layers };

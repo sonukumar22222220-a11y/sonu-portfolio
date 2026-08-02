@@ -7,6 +7,8 @@ import RevealSection from "@/components/RevealSection";
 import ProjectCard from "@/components/ProjectCard";
 import TestimonialCard from "@/components/TestimonialCard";
 
+export const dynamic = "force-dynamic";
+
 export default async function HomePage() {
   const content = await getContent();
   const featured = content.projects.filter((p) => p.featured).slice(0, 3);

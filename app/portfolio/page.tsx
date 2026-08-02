@@ -3,6 +3,8 @@ import PageShell from "@/components/PageShell";
 import RevealSection from "@/components/RevealSection";
 import PortfolioGrid from "./PortfolioGrid";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = { title: "Portfolio — SONU SINGH RATHORE" };
 
 export default async function PortfolioPage() {

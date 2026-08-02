@@ -4,6 +4,8 @@ import PageShell from "@/components/PageShell";
 import RevealSection from "@/components/RevealSection";
 import ContactForm from "./ContactForm";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = { title: "Contact — SONU SINGH RATHORE" };
 
 export default async function ContactPage() {
