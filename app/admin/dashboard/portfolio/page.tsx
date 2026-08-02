@@ -48,15 +48,27 @@ export default function PortfolioManager() {
 
   const publish = async (updated: SiteContent) => {
     setSaving(true);
-    await fetch("/api/content", {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(updated),
-    });
-    setContent(updated);
-    setSaving(false);
-    setToast("Changes published to the live site");
-    setTimeout(() => setToast(""), 2500);
+    try {
+      const res = await fetch("/api/content", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updated),
+      });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        setToast(`Save failed (${res.status}): ${err.error || "Unknown error"}`);
+        setSaving(false);
+        setTimeout(() => setToast(""), 5000);
+        return;
+      }
+      setContent(updated);
+      setToast("Changes published to the live site");
+    } catch (e) {
+      setToast(`Save failed: ${(e as Error).message}`);
+    } finally {
+      setSaving(false);
+      setTimeout(() => setToast(""), 5000);
+    }
   };
 
   const handleDelete = (id: string) => {

@@ -19,14 +19,26 @@ export default function SettingsPage() {
   const publish = async () => {
     if (!content) return;
     setSaving(true);
-    await fetch("/api/content", {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(content),
-    });
-    setSaving(false);
-    setToast("Changes published to the live site");
-    setTimeout(() => setToast(""), 2500);
+    try {
+      const res = await fetch("/api/content", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(content),
+      });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        setToast(`Save failed (${res.status}): ${err.error || "Unknown error"}`);
+        setSaving(false);
+        setTimeout(() => setToast(""), 5000);
+        return;
+      }
+      setToast("Changes published to the live site");
+    } catch (e) {
+      setToast(`Save failed: ${(e as Error).message}`);
+    } finally {
+      setSaving(false);
+      setTimeout(() => setToast(""), 5000);
+    }
   };
 
   if (!content) return <div className="text-white/40 text-sm">Loading...</div>;
