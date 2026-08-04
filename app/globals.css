@@ -49,7 +49,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* ---------- Custom cursor (legacy, kept for reference) ---------- */
+/* ---------- Custom cursor ---------- */
 .cursor-dot {
   position: fixed;
   top: 0;
@@ -74,69 +74,6 @@ body {
   pointer-events: none;
   z-index: 9998;
   transform: translate(-50%, -50%);
-}
-
-/* ---------- Neon-purple glowing cursor ---------- */
-/* Hides the default browser cursor everywhere except mobile (handled below). */
-body,
-a,
-button,
-[role="button"] {
-  cursor: none;
-}
-
-.cursor-dot-neon {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #c084fc;
-  box-shadow: 0 0 8px 2px rgba(168, 85, 247, 0.9);
-  pointer-events: none;
-  z-index: 10000;
-  transform: translate(-50%, -50%);
-}
-
-.cursor-glow-neon {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  border: 1.5px solid rgba(168, 85, 247, 0.7);
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, rgba(168, 85, 247, 0) 70%);
-  box-shadow: 0 0 20px 4px rgba(168, 85, 247, 0.35);
-  opacity: 0.85;
-  transition: width 0.25s ease, height 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
-}
-
-/* Expands, brightens, and glows harder on hover over interactive elements */
-.cursor-glow-neon--active {
-  width: 64px;
-  height: 64px;
-  opacity: 1;
-  border-color: rgba(192, 132, 252, 0.9);
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.35) 0%, rgba(168, 85, 247, 0) 70%);
-  box-shadow: 0 0 34px 8px rgba(168, 85, 247, 0.55);
-}
-
-@media (max-width: 768px) {
-  body,
-  a,
-  button,
-  [role="button"] {
-    cursor: auto;
-  }
-  .cursor-dot-neon,
-  .cursor-glow-neon {
-    display: none;
-  }
 }
 
 /* ---------- Mouse glow ---------- */

@@ -5,13 +5,13 @@ import PortfolioGrid from "./PortfolioGrid";
 
 export const dynamic = "force-dynamic";
 
-export const metadata = { title: "Portfolio — SONU SINGH RATHORE" };
+export const metadata = { title: "Portfolio " };
 
 export default async function PortfolioPage() {
   const content = await getContent();
 
   return (
-    <PageShell contact={content.contact}>
+    <PageShell about={content.about} contact={content.contact}>
       <section className="max-w-7xl mx-auto px-6 pb-32">
         <RevealSection className="mb-12">
           <div className="text-xs uppercase tracking-widest text-accent mb-4">Portfolio</div>

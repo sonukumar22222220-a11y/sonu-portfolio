@@ -9,7 +9,7 @@ import Loader from "@/components/Loader";
 const inter = Inter({ subsets: ["latin"], variable: "--font-body", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "SONU SINGH RATHORE — Freelance Video Editor & Graphic Designer",
+  title: "Sonu Kumar — Video Editor & Motion Graphics Artist",
   description:
     "I create videos that capture attention and designs that sell. Freelance video editing, motion graphics, and graphic design.",
   keywords: [
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "YouTube editor",
   ],
   openGraph: {
-    title: "SONU SINGH RATHORE — Freelance Video Editor & Graphic Designer",
+    title: "Sonu Kumar — Video Editor & Motion Graphics Artist",
     description: "Videos that capture attention. Designs that sell.",
     type: "website",
   },

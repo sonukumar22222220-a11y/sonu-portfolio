@@ -145,8 +145,8 @@ export default function PortfolioManager() {
       </div>
 
       {editing && (
-        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6">
-          <div className="glass-strong rounded-3xl w-full max-w-2xl max-h-[85vh] overflow-y-auto p-5 sm:p-8">
+        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-6">
+          <div className="glass-strong rounded-3xl w-full max-w-2xl max-h-[85vh] overflow-y-auto p-8">
             <div className="flex items-center justify-between mb-6">
               <h2 className="font-display text-xl font-medium">
                 {content.projects.some((p) => p.id === editing.id) ? "Edit Project" : "New Project"}
@@ -199,7 +199,7 @@ export default function PortfolioManager() {
                 {editing.videoUrl && <p className="text-xs text-white/30 mt-2 truncate">{editing.videoUrl}</p>}
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="text-xs uppercase tracking-widest text-white/40 mb-2 block">Before Image</label>
                   <CloudinaryUploader
@@ -218,7 +218,7 @@ export default function PortfolioManager() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="text-xs uppercase tracking-widest text-white/40 mb-2 block">Client</label>
                   <input

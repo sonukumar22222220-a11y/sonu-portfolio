@@ -14,7 +14,11 @@ const links = [
   { href: "/contact", label: "Contact" },
 ];
 
-export default function Navbar() {
+export default function Navbar({ name = "SONU KUMAR" }: { name?: string }) {
+  const parts = name.trim().split(" ");
+  const firstPart = parts.slice(0, -1).join(" ") || parts[0];
+  const lastPart = parts.length > 1 ? parts[parts.length - 1] : "";
+
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
@@ -41,7 +45,7 @@ export default function Navbar() {
           }`}
         >
           <Link href="/" className="font-display text-lg font-semibold tracking-tight">
-            SONU SINGH<span className="text-accent"> RATHORE</span>
+            {firstPart}{lastPart && <span className="text-accent"> {lastPart}</span>}
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">

@@ -6,7 +6,7 @@ import RevealSection from "@/components/RevealSection";
 
 export const dynamic = "force-dynamic";
 
-export const metadata = { title: "Services & Pricing — SONU SINGH RATHORE" };
+export const metadata = { title: "Services & Pricing " };
 
 const ICONS: Record<string, any> = { Film, Sparkles, Image: ImageIcon, PenTool, Gem, Layers };
 
@@ -14,7 +14,7 @@ export default async function ServicesPage() {
   const content = await getContent();
 
   return (
-    <PageShell contact={content.contact}>
+    <PageShell about={content.about} contact={content.contact}>
       <section className="max-w-7xl mx-auto px-6 pb-32">
         <RevealSection className="mb-16 text-center">
           <div className="text-xs uppercase tracking-widest text-accent mb-4">Services</div>

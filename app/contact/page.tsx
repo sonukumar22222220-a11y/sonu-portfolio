@@ -1,4 +1,4 @@
-import { Mail, MessageCircle, Instagram, Linkedin, Download } from "lucide-react";
+import { Mail, MessageCircle, Instagram, Linkedin, Youtube, Phone, Download } from "lucide-react";
 import { getContent } from "@/lib/data";
 import PageShell from "@/components/PageShell";
 import RevealSection from "@/components/RevealSection";
@@ -6,21 +6,23 @@ import ContactForm from "./ContactForm";
 
 export const dynamic = "force-dynamic";
 
-export const metadata = { title: "Contact — SONU SINGH RATHORE" };
+export const metadata = { title: "Contact" };
 
 export default async function ContactPage() {
   const content = await getContent();
-  const { contact } = content;
+  const { contact, about } = content;
 
   const links = [
     { icon: Mail, label: "Email", value: contact.email, href: `mailto:${contact.email}` },
+    ...(contact.phone ? [{ icon: Phone, label: "Phone", value: contact.phone, href: `tel:${contact.phone}` }] : []),
     { icon: MessageCircle, label: "WhatsApp", value: "Chat now", href: contact.whatsapp },
     { icon: Instagram, label: "Instagram", value: "@yourhandle", href: contact.instagram },
     { icon: Linkedin, label: "LinkedIn", value: "Connect", href: contact.linkedin },
+    ...(contact.youtube ? [{ icon: Youtube, label: "YouTube", value: "Watch", href: contact.youtube }] : []),
   ];
 
   return (
-    <PageShell contact={contact}>
+    <PageShell about={about} contact={contact}>
       <section className="max-w-6xl mx-auto px-6 pb-32">
         <RevealSection className="mb-16">
           <div className="text-xs uppercase tracking-widest text-accent mb-4">Contact</div>

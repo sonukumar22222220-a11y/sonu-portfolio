@@ -1,32 +1,25 @@
 import { getContent } from "@/lib/data";
 import PageShell from "@/components/PageShell";
 import RevealSection from "@/components/RevealSection";
-import ProfileImageCard from "@/components/ProfileImageCard";
 
 export const dynamic = "force-dynamic";
 
-export const metadata = { title: "About — SONU SINGH RATHORE" };
+export const metadata = { title: "About " };
 
 export default async function AboutPage() {
   const content = await getContent();
   const { about } = content;
 
   return (
-    <PageShell contact={content.contact}>
+    <PageShell about={content.about} contact={content.contact}>
       <section className="max-w-5xl mx-auto px-6 pb-24">
-        <div className="grid md:grid-cols-[1.2fr_0.8fr] gap-12 md:gap-16 items-center">
-          <RevealSection>
-            <div className="text-xs uppercase tracking-widest text-accent mb-4">About Me</div>
-            <h1 className="font-display text-4xl sm:text-5xl font-semibold tracking-tight leading-tight">
-              {about.headline}
-            </h1>
-            <p className="mt-8 text-white/50 leading-relaxed text-lg">{about.bio}</p>
-          </RevealSection>
-
-          <RevealSection delay={0.1} className="mt-10 md:mt-0">
-            <ProfileImageCard src={about.profileImage} yearsExperience={about.yearsExperience} />
-          </RevealSection>
-        </div>
+        <RevealSection>
+          <div className="text-xs uppercase tracking-widest text-accent mb-4">About Me</div>
+          <h1 className="font-display text-4xl sm:text-5xl font-semibold tracking-tight leading-tight max-w-3xl">
+            {about.headline}
+          </h1>
+          <p className="mt-8 text-white/50 leading-relaxed max-w-2xl text-lg">{about.bio}</p>
+        </RevealSection>
 
         <RevealSection delay={0.1} className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16">
           {[
@@ -61,6 +54,45 @@ export default async function AboutPage() {
             ))}
           </div>
         </RevealSection>
+
+        {about.experience?.length > 0 && (
+          <RevealSection delay={0.18} className="mt-24">
+            <h2 className="font-display text-2xl font-semibold mb-10">Experience</h2>
+            <div className="relative pl-8 border-l border-line space-y-12">
+              {about.experience.map((exp) => (
+                <div key={exp.id} className="relative">
+                  <span className="absolute -left-[2.35rem] top-1 w-3 h-3 rounded-full bg-accent shadow-[0_0_0_4px_rgba(255,255,255,0.05)]" />
+                  <div className="text-xs uppercase tracking-widest text-accent mb-2">{exp.duration}</div>
+                  <h3 className="font-display text-xl font-medium">{exp.role}</h3>
+                  <div className="text-white/50 text-sm mt-1 mb-4">{exp.company}</div>
+                  <ul className="space-y-2">
+                    {exp.points.map((pt, i) => (
+                      <li key={i} className="text-white/50 text-sm leading-relaxed flex gap-2">
+                        <span className="text-accent mt-1.5">•</span>
+                        <span>{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </RevealSection>
+        )}
+
+        {about.education?.length > 0 && (
+          <RevealSection delay={0.19} className="mt-24">
+            <h2 className="font-display text-2xl font-semibold mb-10">Education</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {about.education.map((edu) => (
+                <div key={edu.id} className="glass rounded-2xl p-6 hover:bg-white/[0.06] transition-colors">
+                  <div className="text-xs uppercase tracking-widest text-accent mb-2">{edu.duration}</div>
+                  <h3 className="font-display text-lg font-medium">{edu.degree}</h3>
+                  <div className="text-white/50 text-sm mt-1">{edu.institution}</div>
+                </div>
+              ))}
+            </div>
+          </RevealSection>
+        )}
 
         <RevealSection delay={0.2} className="mt-24 grid md:grid-cols-3 gap-6">
           {[

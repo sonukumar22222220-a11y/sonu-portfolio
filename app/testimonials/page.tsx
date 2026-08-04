@@ -5,13 +5,13 @@ import TestimonialCard from "@/components/TestimonialCard";
 
 export const dynamic = "force-dynamic";
 
-export const metadata = { title: "Testimonials — SONU SINGH RATHORE" };
+export const metadata = { title: "Testimonials " };
 
 export default async function TestimonialsPage() {
   const content = await getContent();
 
   return (
-    <PageShell contact={content.contact}>
+    <PageShell about={content.about} contact={content.contact}>
       <section className="max-w-7xl mx-auto px-6 pb-32">
         <RevealSection className="mb-16 text-center">
           <div className="text-xs uppercase tracking-widest text-accent mb-4">Testimonials</div>

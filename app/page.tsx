@@ -14,8 +14,8 @@ export default async function HomePage() {
   const featured = content.projects.filter((p) => p.featured).slice(0, 3);
 
   return (
-    <PageShell contact={content.contact}>
-      <Hero />
+    <PageShell about={content.about} contact={content.contact}>
+      <Hero about={content.about} contact={content.contact} />
 
       {/* Marquee */}
       <RevealSection className="border-y border-line py-6 overflow-hidden">

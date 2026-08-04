@@ -20,7 +20,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
   if (!project) notFound();
 
   return (
-    <PageShell contact={content.contact}>
+    <PageShell about={content.about} contact={content.contact}>
       <article className="max-w-5xl mx-auto px-6 pb-32">
         <RevealSection>
           <Link href="/portfolio" className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-white mb-8">

@@ -47,7 +47,24 @@ export interface Testimonial {
   quote: string;
 }
 
+export interface ExperienceEntry {
+  id: string;
+  role: string;
+  company: string;
+  duration: string;
+  points: string[];
+}
+
+export interface EducationEntry {
+  id: string;
+  degree: string;
+  institution: string;
+  duration: string;
+}
+
 export interface AboutContent {
+  name: string;
+  role: string;
   headline: string;
   bio: string;
   profileImage: string;
@@ -55,13 +72,17 @@ export interface AboutContent {
   projectsCompleted: number;
   happyClients: number;
   skills: { name: string; level: number }[];
+  experience: ExperienceEntry[];
+  education: EducationEntry[];
 }
 
 export interface ContactContent {
   email: string;
+  phone: string;
   whatsapp: string;
   instagram: string;
   linkedin: string;
+  youtube: string;
   resumeUrl: string;
 }
 
