@@ -36,7 +36,7 @@ export default function PortfolioGrid({ projects }: { projects: Project[] }) {
             onClick={() => setActive(cat)}
             className={`text-xs px-4 py-2 rounded-full border transition-colors ${
               active === cat
-                ? "bg-accent text-black border-accent"
+                ? "bg-white text-black border-white"
                 : "border-line text-white/60 hover:text-white hover:border-white/30"
             }`}
           >

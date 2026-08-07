@@ -35,7 +35,7 @@ export default function Loader() {
             transition={{ duration: 0.6 }}
             className="font-display text-2xl tracking-tight text-white mb-6"
           >
-            SONU<span className="text-accent"> KUMAR</span>
+            SONU SINGH<span className="text-accent"> RATHORE</span>
           </motion.div>
           <div className="w-56 h-[2px] bg-white/10 overflow-hidden rounded-full">
             <motion.div

@@ -3,15 +3,13 @@ import PageShell from "@/components/PageShell";
 import RevealSection from "@/components/RevealSection";
 import TestimonialCard from "@/components/TestimonialCard";
 
-export const dynamic = "force-dynamic";
-
-export const metadata = { title: "Testimonials " };
+export const metadata = { title: "Testimonials — SONU SINGH RATHORE" };
 
 export default async function TestimonialsPage() {
   const content = await getContent();
 
   return (
-    <PageShell about={content.about} contact={content.contact}>
+    <PageShell site={content.site} contact={content.contact}>
       <section className="max-w-7xl mx-auto px-6 pb-32">
         <RevealSection className="mb-16 text-center">
           <div className="text-xs uppercase tracking-widest text-accent mb-4">Testimonials</div>

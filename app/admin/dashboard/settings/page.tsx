@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Save, Plus, Trash2 } from "lucide-react";
 import type { SiteContent } from "@/lib/types";
 
-const TABS = ["About", "Experience", "Services", "Testimonials", "Contact"] as const;
+const TABS = ["Site & Hero", "About", "Services", "Testimonials", "Contact"] as const;
 
 export default function SettingsPage() {
   const [content, setContent] = useState<SiteContent | null>(null);
@@ -19,33 +19,22 @@ export default function SettingsPage() {
   const publish = async () => {
     if (!content) return;
     setSaving(true);
-    try {
-      const res = await fetch("/api/content", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(content),
-      });
-      if (!res.ok) {
-        const err = await res.json().catch(() => ({}));
-        setToast(`Save failed (${res.status}): ${err.error || "Unknown error"}`);
-        setSaving(false);
-        setTimeout(() => setToast(""), 5000);
-        return;
-      }
-      setToast("Changes published to the live site");
-    } catch (e) {
-      setToast(`Save failed: ${(e as Error).message}`);
-    } finally {
-      setSaving(false);
-      setTimeout(() => setToast(""), 5000);
-    }
+    await fetch("/api/content", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(content),
+    });
+    setSaving(false);
+    setToast("Changes published to the live site");
+    setTimeout(() => setToast(""), 2500);
+    window.dispatchEvent(new Event("content-updated"));
   };
 
   if (!content) return <div className="text-white/40 text-sm">Loading...</div>;
 
   return (
     <div>
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+      <div className="flex items-center justify-between mb-8">
         <div>
           <h1 className="font-display text-3xl font-semibold mb-1">Settings</h1>
           <p className="text-white/40 text-sm">Edit content across the site.</p>
@@ -53,7 +42,7 @@ export default function SettingsPage() {
         <button
           onClick={publish}
           disabled={saving}
-          className="inline-flex items-center gap-2 rounded-full bg-accent text-black text-sm font-semibold shadow-[0_0_20px_rgba(0,255,135,0.3)] hover:shadow-[0_0_30px_rgba(0,255,135,0.5)] px-5 py-2.5 transition-all disabled:opacity-50"
+          className="inline-flex items-center gap-2 rounded-full bg-white text-black text-sm font-medium px-5 py-2.5 hover:bg-white/90 transition-all disabled:opacity-50"
         >
           <Save size={16} /> {saving ? "Publishing..." : "Save & Publish"}
         </button>
@@ -65,12 +54,12 @@ export default function SettingsPage() {
         </div>
       )}
 
-      <div className="flex gap-2 mb-8 border-b border-line overflow-x-auto">
+      <div className="flex gap-2 mb-8 border-b border-line">
         {TABS.map((t) => (
           <button
             key={t}
             onClick={() => setTab(t)}
-            className={`px-4 py-3 text-sm border-b-2 transition-colors -mb-px whitespace-nowrap ${
+            className={`px-4 py-3 text-sm border-b-2 transition-colors -mb-px ${
               tab === t ? "border-accent text-white" : "border-transparent text-white/40 hover:text-white/70"
             }`}
           >
@@ -79,19 +68,58 @@ export default function SettingsPage() {
         ))}
       </div>
 
+      {tab === "Site & Hero" && (
+        <div className="glass rounded-2xl p-8 space-y-5 max-w-2xl">
+          <Field label="Site Name (logo, footer, copyright)">
+            <input
+              value={content.site.name}
+              onChange={(e) => setContent({ ...content, site: { ...content.site, name: e.target.value } })}
+              className={inputClass}
+            />
+          </Field>
+          <Field label="Availability Badge (top of hero)">
+            <input
+              value={content.site.availabilityBadge}
+              onChange={(e) => setContent({ ...content, site: { ...content.site, availabilityBadge: e.target.value } })}
+              className={inputClass}
+            />
+          </Field>
+          <Field label="Hero Heading — Main part">
+            <textarea
+              rows={2}
+              value={content.site.heroHeadingMain}
+              onChange={(e) => setContent({ ...content, site: { ...content.site, heroHeadingMain: e.target.value } })}
+              className={inputClass}
+            />
+          </Field>
+          <Field label="Hero Heading — Highlighted / gradient part">
+            <input
+              value={content.site.heroHeadingAccent}
+              onChange={(e) => setContent({ ...content, site: { ...content.site, heroHeadingAccent: e.target.value } })}
+              className={inputClass}
+            />
+          </Field>
+          <Field label="Hero Pitch (subtitle under heading)">
+            <textarea
+              rows={3}
+              value={content.site.heroPitch}
+              onChange={(e) => setContent({ ...content, site: { ...content.site, heroPitch: e.target.value } })}
+              className={inputClass}
+            />
+          </Field>
+          <Field label="Footer Tagline">
+            <textarea
+              rows={2}
+              value={content.site.footerTagline}
+              onChange={(e) => setContent({ ...content, site: { ...content.site, footerTagline: e.target.value } })}
+              className={inputClass}
+            />
+          </Field>
+        </div>
+      )}
+
       {tab === "About" && (
         <div className="glass rounded-2xl p-8 space-y-5 max-w-2xl">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <Field label="Full Name">
-              <input value={content.about.name} onChange={(e) => setContent({ ...content, about: { ...content.about, name: e.target.value } })} className={inputClass} />
-            </Field>
-            <Field label="Role / Title">
-              <input value={content.about.role} onChange={(e) => setContent({ ...content, about: { ...content.about, role: e.target.value } })} className={inputClass} />
-            </Field>
-          </div>
-          <Field label="Profile Image URL (upload via Media Library, paste link here)">
-            <input value={content.about.profileImage} onChange={(e) => setContent({ ...content, about: { ...content.about, profileImage: e.target.value } })} className={inputClass} placeholder="https://res.cloudinary.com/.../photo.jpg" />
-          </Field>
           <Field label="Headline">
             <textarea
               rows={2}
@@ -108,7 +136,7 @@ export default function SettingsPage() {
               className={inputClass}
             />
           </Field>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-3 gap-4">
             <Field label="Years Experience">
               <input type="number" value={content.about.yearsExperience} onChange={(e) => setContent({ ...content, about: { ...content.about, yearsExperience: Number(e.target.value) } })} className={inputClass} />
             </Field>
@@ -165,163 +193,6 @@ export default function SettingsPage() {
                 className="text-sm text-accent inline-flex items-center gap-1"
               >
                 <Plus size={14} /> Add skill
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {tab === "Experience" && (
-        <div className="space-y-8 max-w-2xl">
-          <div>
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="font-display text-lg font-medium">Work Experience</h3>
-            </div>
-            <div className="space-y-4">
-              {content.about.experience.map((exp, i) => (
-                <div key={exp.id} className="glass rounded-2xl p-6 space-y-3">
-                  <div className="flex items-center justify-between gap-3">
-                    <input
-                      value={exp.role}
-                      onChange={(e) => {
-                        const experience = [...content.about.experience];
-                        experience[i] = { ...experience[i], role: e.target.value };
-                        setContent({ ...content, about: { ...content.about, experience } });
-                      }}
-                      className={`${inputClass} font-medium`}
-                      placeholder="Role"
-                    />
-                    <button
-                      onClick={() => {
-                        const experience = content.about.experience.filter((_, idx) => idx !== i);
-                        setContent({ ...content, about: { ...content.about, experience } });
-                      }}
-                      className="text-red-400 hover:text-red-300"
-                    >
-                      <Trash2 size={16} />
-                    </button>
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <input
-                      value={exp.company}
-                      onChange={(e) => {
-                        const experience = [...content.about.experience];
-                        experience[i] = { ...experience[i], company: e.target.value };
-                        setContent({ ...content, about: { ...content.about, experience } });
-                      }}
-                      className={inputClass}
-                      placeholder="Company"
-                    />
-                    <input
-                      value={exp.duration}
-                      onChange={(e) => {
-                        const experience = [...content.about.experience];
-                        experience[i] = { ...experience[i], duration: e.target.value };
-                        setContent({ ...content, about: { ...content.about, experience } });
-                      }}
-                      className={inputClass}
-                      placeholder="e.g. April 2025 – Present"
-                    />
-                  </div>
-                  <textarea
-                    rows={4}
-                    value={exp.points.join("\n")}
-                    onChange={(e) => {
-                      const experience = [...content.about.experience];
-                      experience[i] = { ...experience[i], points: e.target.value.split("\n").filter(Boolean) };
-                      setContent({ ...content, about: { ...content.about, experience } });
-                    }}
-                    className={inputClass}
-                    placeholder="One responsibility per line"
-                  />
-                </div>
-              ))}
-              <button
-                onClick={() =>
-                  setContent({
-                    ...content,
-                    about: {
-                      ...content.about,
-                      experience: [
-                        ...content.about.experience,
-                        { id: `exp-${Date.now()}`, role: "New Role", company: "Company", duration: "", points: [] },
-                      ],
-                    },
-                  })
-                }
-                className="text-sm text-accent inline-flex items-center gap-1"
-              >
-                <Plus size={14} /> Add experience
-              </button>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="font-display text-lg font-medium mb-4">Education</h3>
-            <div className="space-y-4">
-              {content.about.education.map((edu, i) => (
-                <div key={edu.id} className="glass rounded-2xl p-6 space-y-3">
-                  <div className="flex items-center justify-between gap-3">
-                    <input
-                      value={edu.degree}
-                      onChange={(e) => {
-                        const education = [...content.about.education];
-                        education[i] = { ...education[i], degree: e.target.value };
-                        setContent({ ...content, about: { ...content.about, education } });
-                      }}
-                      className={`${inputClass} font-medium`}
-                      placeholder="Degree"
-                    />
-                    <button
-                      onClick={() => {
-                        const education = content.about.education.filter((_, idx) => idx !== i);
-                        setContent({ ...content, about: { ...content.about, education } });
-                      }}
-                      className="text-red-400 hover:text-red-300"
-                    >
-                      <Trash2 size={16} />
-                    </button>
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <input
-                      value={edu.institution}
-                      onChange={(e) => {
-                        const education = [...content.about.education];
-                        education[i] = { ...education[i], institution: e.target.value };
-                        setContent({ ...content, about: { ...content.about, education } });
-                      }}
-                      className={inputClass}
-                      placeholder="Institution"
-                    />
-                    <input
-                      value={edu.duration}
-                      onChange={(e) => {
-                        const education = [...content.about.education];
-                        education[i] = { ...education[i], duration: e.target.value };
-                        setContent({ ...content, about: { ...content.about, education } });
-                      }}
-                      className={inputClass}
-                      placeholder="e.g. 2020 – 2023"
-                    />
-                  </div>
-                </div>
-              ))}
-              <button
-                onClick={() =>
-                  setContent({
-                    ...content,
-                    about: {
-                      ...content.about,
-                      education: [
-                        ...content.about.education,
-                        { id: `edu-${Date.now()}`, degree: "New Degree", institution: "", duration: "" },
-                      ],
-                    },
-                  })
-                }
-                className="text-sm text-accent inline-flex items-center gap-1"
-              >
-                <Plus size={14} /> Add education
               </button>
             </div>
           </div>
@@ -452,12 +323,6 @@ export default function SettingsPage() {
         <div className="glass rounded-2xl p-8 space-y-5 max-w-2xl">
           <Field label="Email">
             <input value={content.contact.email} onChange={(e) => setContent({ ...content, contact: { ...content.contact, email: e.target.value } })} className={inputClass} />
-          </Field>
-          <Field label="Phone">
-            <input value={content.contact.phone} onChange={(e) => setContent({ ...content, contact: { ...content.contact, phone: e.target.value } })} className={inputClass} />
-          </Field>
-          <Field label="YouTube Link">
-            <input value={content.contact.youtube} onChange={(e) => setContent({ ...content, contact: { ...content.contact, youtube: e.target.value } })} className={inputClass} />
           </Field>
           <Field label="WhatsApp Link">
             <input value={content.contact.whatsapp} onChange={(e) => setContent({ ...content, contact: { ...content.contact, whatsapp: e.target.value } })} className={inputClass} />

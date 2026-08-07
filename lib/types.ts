@@ -47,46 +47,34 @@ export interface Testimonial {
   quote: string;
 }
 
-export interface ExperienceEntry {
-  id: string;
-  role: string;
-  company: string;
-  duration: string;
-  points: string[];
-}
-
-export interface EducationEntry {
-  id: string;
-  degree: string;
-  institution: string;
-  duration: string;
-}
-
 export interface AboutContent {
-  name: string;
-  role: string;
   headline: string;
   bio: string;
-  profileImage: string;
   yearsExperience: number;
   projectsCompleted: number;
   happyClients: number;
   skills: { name: string; level: number }[];
-  experience: ExperienceEntry[];
-  education: EducationEntry[];
 }
 
 export interface ContactContent {
   email: string;
-  phone: string;
   whatsapp: string;
   instagram: string;
   linkedin: string;
-  youtube: string;
   resumeUrl: string;
 }
 
+export interface SiteInfo {
+  name: string;
+  availabilityBadge: string;
+  heroHeadingMain: string;
+  heroHeadingAccent: string;
+  heroPitch: string;
+  footerTagline: string;
+}
+
 export interface SiteContent {
+  site: SiteInfo;
   about: AboutContent;
   services: Service[];
   testimonials: Testimonial[];

@@ -4,9 +4,7 @@ import { getContent } from "@/lib/data";
 import PageShell from "@/components/PageShell";
 import RevealSection from "@/components/RevealSection";
 
-export const dynamic = "force-dynamic";
-
-export const metadata = { title: "Services & Pricing " };
+export const metadata = { title: "Services & Pricing — SONU SINGH RATHORE" };
 
 const ICONS: Record<string, any> = { Film, Sparkles, Image: ImageIcon, PenTool, Gem, Layers };
 
@@ -14,7 +12,7 @@ export default async function ServicesPage() {
   const content = await getContent();
 
   return (
-    <PageShell about={content.about} contact={content.contact}>
+    <PageShell site={content.site} contact={content.contact}>
       <section className="max-w-7xl mx-auto px-6 pb-32">
         <RevealSection className="mb-16 text-center">
           <div className="text-xs uppercase tracking-widest text-accent mb-4">Services</div>
@@ -64,7 +62,7 @@ export default async function ServicesPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-full bg-accent text-black text-sm font-semibold shadow-[0_0_20px_rgba(0,255,135,0.3)] hover:shadow-[0_0_30px_rgba(0,255,135,0.5)] px-7 py-3.5 transition-all"
+            className="inline-flex items-center gap-2 rounded-full bg-white text-black text-sm font-medium px-7 py-3.5 hover:bg-white/90 transition-all"
           >
             Let&apos;s talk
           </Link>

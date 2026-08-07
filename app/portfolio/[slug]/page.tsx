@@ -7,8 +7,6 @@ import PageShell from "@/components/PageShell";
 import RevealSection from "@/components/RevealSection";
 import BeforeAfterSlider from "./BeforeAfterSlider";
 
-export const dynamic = "force-dynamic";
-
 export async function generateStaticParams() {
   const content = await getContent();
   return content.projects.map((p) => ({ slug: p.slug }));
@@ -20,7 +18,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
   if (!project) notFound();
 
   return (
-    <PageShell about={content.about} contact={content.contact}>
+    <PageShell site={content.site} contact={content.contact}>
       <article className="max-w-5xl mx-auto px-6 pb-32">
         <RevealSection>
           <Link href="/portfolio" className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-white mb-8">
@@ -82,7 +80,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
           <h2 className="font-display text-2xl font-semibold mb-4">Like what you see?</h2>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-full bg-accent text-black text-sm font-semibold shadow-[0_0_20px_rgba(0,255,135,0.3)] hover:shadow-[0_0_30px_rgba(0,255,135,0.5)] px-7 py-3.5 transition-all"
+            className="inline-flex items-center gap-2 rounded-full bg-white text-black text-sm font-medium px-7 py-3.5 hover:bg-white/90 transition-all"
           >
             Start your project
           </Link>

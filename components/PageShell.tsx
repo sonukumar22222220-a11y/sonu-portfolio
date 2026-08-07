@@ -1,23 +1,21 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import AdminLoginButton from "@/components/AdminLoginButton";
-import type { AboutContent, ContactContent } from "@/lib/types";
+import type { ContactContent, SiteInfo } from "@/lib/types";
 
 export default function PageShell({
-  about,
+  site,
   contact,
   children,
 }: {
-  about: AboutContent;
+  site: SiteInfo;
   contact: ContactContent;
   children: React.ReactNode;
 }) {
   return (
     <>
-      <Navbar name={about.name} />
+      <Navbar site={site} />
       <main className="pt-32">{children}</main>
-      <Footer about={about} contact={contact} />
-      <AdminLoginButton />
+      <Footer site={site} contact={contact} />
     </>
   );
 }
