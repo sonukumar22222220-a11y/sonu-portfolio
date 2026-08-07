@@ -4,25 +4,46 @@
     "role": "Video Editor | Motion Graphics Artist",
     "headline": "Video Editor & Motion Graphics Artist crafting scroll-stopping visuals.",
     "bio": "Creative Video Editor & Motion Graphics Artist skilled in creating engaging reels, promotional videos, social media content, and YouTube videos. Experienced with Adobe Premiere Pro, After Effects, Photoshop, Motion Graphics, and Color Grading. Passionate about storytelling and delivering high-quality visual content.",
-    "profileImage": "",
+    "profileImage": "/images/profile.jpg",
     "yearsExperience": 1,
     "projectsCompleted": 60,
     "happyClients": 20,
     "skills": [
-      { "name": "Adobe Premiere Pro", "level": 95 },
-      { "name": "Adobe After Effects", "level": 88 },
-      { "name": "Adobe Photoshop", "level": 85 },
-      { "name": "Motion Graphics", "level": 90 },
-      { "name": "Color Grading", "level": 87 },
-      { "name": "Reels Editing", "level": 96 },
-      { "name": "YouTube Video Editing", "level": 92 }
+      {
+        "name": "Adobe Premiere Pro",
+        "level": 95
+      },
+      {
+        "name": "Adobe After Effects",
+        "level": 88
+      },
+      {
+        "name": "Adobe Photoshop",
+        "level": 85
+      },
+      {
+        "name": "Motion Graphics",
+        "level": 90
+      },
+      {
+        "name": "Color Grading",
+        "level": 87
+      },
+      {
+        "name": "Reels Editing",
+        "level": 96
+      },
+      {
+        "name": "YouTube Video Editing",
+        "level": 92
+      }
     ],
     "experience": [
       {
         "id": "exp-1",
         "role": "Video Editor",
         "company": "Bambral Production",
-        "duration": "April 2025 – Present",
+        "duration": "April 2025 \u2013 Present",
         "points": [
           "Edited Reels, Shorts, and Social Media Videos",
           "Added cuts, transitions, and color correction",
@@ -38,13 +59,13 @@
         "id": "edu-1",
         "degree": "Bachelor of Arts (B.A.)",
         "institution": "L.N.M.U. Darbhanga, Bihar",
-        "duration": "2020 – 2023"
+        "duration": "2020 \u2013 2023"
       },
       {
         "id": "edu-2",
         "degree": "Intermediate (Commerce)",
         "institution": "R.N.J. College, Bihar",
-        "duration": "2018 – 2020"
+        "duration": "2018 \u2013 2020"
       }
     ]
   },
@@ -54,7 +75,12 @@
       "title": "Video Editing",
       "description": "Long-form and short-form editing with pacing, sound design, and color that keeps viewers watching.",
       "price": "From $150 / video",
-      "features": ["Pacing & story structure", "Sound design & SFX", "Color grading", "2 rounds of revisions"],
+      "features": [
+        "Pacing & story structure",
+        "Sound design & SFX",
+        "Color grading",
+        "2 rounds of revisions"
+      ],
       "icon": "Film"
     },
     {
@@ -62,7 +88,11 @@
       "title": "Motion Graphics",
       "description": "Custom animated titles, lower thirds, and kinetic typography that make your brand move.",
       "price": "From $120 / project",
-      "features": ["Custom animation", "Brand-matched motion", "Source files included"],
+      "features": [
+        "Custom animation",
+        "Brand-matched motion",
+        "Source files included"
+      ],
       "icon": "Sparkles"
     },
     {
@@ -70,7 +100,11 @@
       "title": "Thumbnail Design",
       "description": "High-CTR thumbnails engineered around curiosity, contrast, and clarity.",
       "price": "From $35 / thumbnail",
-      "features": ["A/B variant options", "Fast 24h turnaround", "Unlimited concepts"],
+      "features": [
+        "A/B variant options",
+        "Fast 24h turnaround",
+        "Unlimited concepts"
+      ],
       "icon": "Image"
     },
     {
@@ -78,7 +112,11 @@
       "title": "Graphic Design",
       "description": "Posters, carousels, ads, and print-ready design with a consistent visual system.",
       "price": "From $60 / design",
-      "features": ["Print & digital ready", "Source files", "Brand consistency"],
+      "features": [
+        "Print & digital ready",
+        "Source files",
+        "Brand consistency"
+      ],
       "icon": "PenTool"
     },
     {
@@ -86,7 +124,11 @@
       "title": "Branding",
       "description": "Logo, color system, and brand guidelines that make you instantly recognizable.",
       "price": "From $400 / package",
-      "features": ["Logo suite", "Color & type system", "Brand guideline PDF"],
+      "features": [
+        "Logo suite",
+        "Color & type system",
+        "Brand guideline PDF"
+      ],
       "icon": "Gem"
     },
     {
@@ -94,7 +136,11 @@
       "title": "Social Media Design",
       "description": "Templated, on-brand post systems so your feed always looks intentional.",
       "price": "From $250 / month",
-      "features": ["Custom templates", "Monthly content batch", "Story & feed sizes"],
+      "features": [
+        "Custom templates",
+        "Monthly content batch",
+        "Story & feed sizes"
+      ],
       "icon": "Layers"
     }
   ],
@@ -137,7 +183,11 @@
       "videoUrl": "",
       "client": "Sarah Chen",
       "result": "+28% average watch time",
-      "software": ["Premiere Pro", "DaVinci Resolve", "After Effects"],
+      "software": [
+        "Premiere Pro",
+        "DaVinci Resolve",
+        "After Effects"
+      ],
       "description": "A weekly vlog series edited for rhythm and story, with custom sound design and a consistent color language across 40+ episodes.",
       "gallery": [
         "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&h=800&fit=crop"
@@ -155,7 +205,11 @@
       "afterImage": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1200&h=800&fit=crop",
       "client": "Reyes Studio",
       "result": "Full brand identity delivered in 3 weeks",
-      "software": ["Illustrator", "Photoshop", "Figma"],
+      "software": [
+        "Illustrator",
+        "Photoshop",
+        "Figma"
+      ],
       "description": "Complete brand identity redesign including logo suite, color system, and guideline documentation.",
       "gallery": [
         "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1200&h=800&fit=crop"
@@ -171,7 +225,10 @@
       "coverImage": "https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=1200&h=800&fit=crop",
       "client": "Northwind Co.",
       "result": "3.4M combined views",
-      "software": ["Premiere Pro", "CapCut"],
+      "software": [
+        "Premiere Pro",
+        "CapCut"
+      ],
       "description": "A batch of 20 short-form vertical edits optimized for retention and shareability across Reels, TikTok, and Shorts.",
       "gallery": [
         "https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=1200&h=800&fit=crop"
@@ -187,7 +244,9 @@
       "coverImage": "https://images.unsplash.com/photo-1611162458324-aae1eb4129a4?w=1200&h=800&fit=crop",
       "client": "Sarah Chen",
       "result": "CTR up from 4.1% to 7.8%",
-      "software": ["Photoshop"],
+      "software": [
+        "Photoshop"
+      ],
       "description": "A set of 12 thumbnails designed around curiosity gaps, bold contrast, and consistent branding.",
       "gallery": [
         "https://images.unsplash.com/photo-1611162458324-aae1eb4129a4?w=1200&h=800&fit=crop"

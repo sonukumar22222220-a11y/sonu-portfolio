@@ -84,7 +84,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-white text-black text-sm font-medium px-7 py-3.5 hover:bg-white/90 transition-all disabled:opacity-50"
+        className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-accent text-black text-sm font-semibold shadow-[0_0_20px_rgba(0,255,135,0.3)] hover:shadow-[0_0_30px_rgba(0,255,135,0.5)] px-7 py-3.5 transition-all disabled:opacity-50"
       >
         {status === "loading" ? "Sending..." : "Send Message"}
         {status !== "loading" && <Send size={16} />}

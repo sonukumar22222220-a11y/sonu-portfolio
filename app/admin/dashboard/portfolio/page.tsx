@@ -96,14 +96,14 @@ export default function PortfolioManager() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
         <div>
           <h1 className="font-display text-3xl font-semibold mb-1">Portfolio Manager</h1>
           <p className="text-white/40 text-sm">Add, edit, and publish projects. Changes go live instantly.</p>
         </div>
         <button
           onClick={() => setEditing(emptyProject())}
-          className="inline-flex items-center gap-2 rounded-full bg-white text-black text-sm font-medium px-5 py-2.5 hover:bg-white/90 transition-all"
+          className="inline-flex items-center gap-2 rounded-full bg-accent text-black text-sm font-semibold shadow-[0_0_20px_rgba(0,255,135,0.3)] hover:shadow-[0_0_30px_rgba(0,255,135,0.5)] px-5 py-2.5 transition-all"
         >
           <Plus size={16} /> Add Project
         </button>
@@ -272,7 +272,7 @@ export default function PortfolioManager() {
               <button
                 onClick={handleSaveProject}
                 disabled={saving || !editing.title}
-                className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-white text-black text-sm font-medium px-7 py-3.5 hover:bg-white/90 transition-all disabled:opacity-50"
+                className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-accent text-black text-sm font-semibold shadow-[0_0_20px_rgba(0,255,135,0.3)] hover:shadow-[0_0_30px_rgba(0,255,135,0.5)] px-7 py-3.5 transition-all disabled:opacity-50"
               >
                 <Save size={16} /> {saving ? "Publishing..." : "Save & Publish"}
               </button>

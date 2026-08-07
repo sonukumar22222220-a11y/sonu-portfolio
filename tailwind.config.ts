@@ -5,11 +5,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "#0a0a0c",
-        surface: "#111114",
-        accent: "#7c5cff",
-        accent2: "#ff5c8a",
-        line: "rgba(255,255,255,0.08)",
+        bg: "#050a08",
+        surface: "#0b1310",
+        accent: "#00FF87",
+        accent2: "#10b981",
+        line: "rgba(0,255,135,0.12)",
       },
       fontFamily: {
         display: ["var(--font-display)", "sans-serif"],
@@ -27,10 +27,15 @@ const config: Config = {
           "0%,100%": { opacity: "0.6" },
           "50%": { opacity: "1" },
         },
+        gridpan: {
+          "0%": { backgroundPosition: "0 0" },
+          "100%": { backgroundPosition: "48px 48px" },
+        },
       },
       animation: {
         marquee: "marquee 30s linear infinite",
         glow: "glow 3s ease-in-out infinite",
+        gridpan: "gridpan 6s linear infinite",
       },
     },
   },

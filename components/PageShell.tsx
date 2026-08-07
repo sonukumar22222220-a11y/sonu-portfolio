@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import AdminLoginButton from "@/components/AdminLoginButton";
 import type { AboutContent, ContactContent } from "@/lib/types";
 
 export default function PageShell({
@@ -16,6 +17,7 @@ export default function PageShell({
       <Navbar name={about.name} />
       <main className="pt-32">{children}</main>
       <Footer about={about} contact={contact} />
+      <AdminLoginButton />
     </>
   );
 }

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Play, Download, Instagram, Linkedin, Youtube, Mail } from "lucide-react";
 import TiltImage from "./TiltImage";
+import TypewriterRole from "./TypewriterRole";
 import type { AboutContent, ContactContent } from "@/lib/types";
 
 export default function Hero({ about, contact }: { about: AboutContent; contact: ContactContent }) {
@@ -21,14 +22,7 @@ export default function Hero({ about, contact }: { about: AboutContent; contact:
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
           className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-accent2/20 blur-[120px]"
         />
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
+        <div className="absolute inset-0 cyber-grid animate-gridpan" />
       </div>
 
       <div className="max-w-6xl mx-auto pt-24 grid md:grid-cols-[1.3fr_auto] gap-16 items-center">
@@ -39,7 +33,7 @@ export default function Hero({ about, contact }: { about: AboutContent; contact:
             transition={{ duration: 0.8, delay: 0.1 }}
             className="inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 mb-8 text-xs text-white/70"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-glow" />
+            <span className="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_8px_rgba(0,255,135,0.9)] animate-glow" />
             Available for freelance projects
           </motion.div>
 
@@ -55,9 +49,9 @@ export default function Hero({ about, contact }: { about: AboutContent; contact:
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="mt-3 text-lg sm:text-xl text-accent font-medium"
+            className="mt-3 text-lg sm:text-xl md:text-2xl gradient-text font-semibold"
           >
-            {about.role}
+            <TypewriterRole role={about.role} />
           </motion.div>
 
           <motion.p
@@ -77,7 +71,7 @@ export default function Hero({ about, contact }: { about: AboutContent; contact:
           >
             <Link
               href="/portfolio"
-              className="group inline-flex items-center gap-2 rounded-full bg-white text-black text-sm font-medium px-7 py-3.5 hover:bg-white/90 transition-all"
+              className="group inline-flex items-center gap-2 rounded-full bg-accent text-black text-sm font-semibold px-7 py-3.5 shadow-[0_0_25px_rgba(0,255,135,0.35)] hover:shadow-[0_0_35px_rgba(0,255,135,0.55)] hover:-translate-y-0.5 transition-all"
             >
               <Play size={16} className="fill-black" />
               View Portfolio
@@ -85,7 +79,7 @@ export default function Hero({ about, contact }: { about: AboutContent; contact:
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-full glass text-white text-sm font-medium px-7 py-3.5 hover:bg-white/10 transition-all"
+              className="inline-flex items-center gap-2 rounded-full glass text-white text-sm font-medium px-7 py-3.5 hover:bg-accent/10 hover:border-accent/40 transition-all"
             >
               Hire Me
             </Link>

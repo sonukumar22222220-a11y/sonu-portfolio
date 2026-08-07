@@ -9,16 +9,16 @@
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+  scrollbar-color: rgba(0, 255, 135, 0.25) transparent;
 }
 
 html {
-  background: #0a0a0c;
+  background: #050a08;
 }
 
 body {
-  background: #0a0a0c;
-  color: #f2f2f5;
+  background: #050a08;
+  color: #eafbf3;
   font-family: var(--font-body);
   cursor: none;
   overflow-x: hidden;
@@ -36,17 +36,17 @@ body {
 
 /* ---------- Glassmorphism ---------- */
 .glass {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(0, 255, 135, 0.04);
   backdrop-filter: blur(16px) saturate(160%);
   -webkit-backdrop-filter: blur(16px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 255, 135, 0.1);
 }
 
 .glass-strong {
-  background: rgba(17, 17, 20, 0.7);
+  background: rgba(6, 20, 14, 0.72);
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 255, 135, 0.18);
 }
 
 /* ---------- Custom cursor ---------- */
@@ -56,7 +56,8 @@ body {
   left: 0;
   width: 8px;
   height: 8px;
-  background: #f2f2f5;
+  background: #00FF87;
+  box-shadow: 0 0 8px rgba(0, 255, 135, 0.8);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
@@ -69,7 +70,7 @@ body {
   left: 0;
   width: 36px;
   height: 36px;
-  border: 1px solid rgba(242, 242, 245, 0.5);
+  border: 1px solid rgba(0, 255, 135, 0.5);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9998;
@@ -86,14 +87,14 @@ body {
   border-radius: 50%;
   pointer-events: none;
   z-index: 1;
-  background: radial-gradient(circle, rgba(124, 92, 255, 0.15) 0%, rgba(124, 92, 255, 0) 70%);
+  background: radial-gradient(circle, rgba(0, 255, 135, 0.15) 0%, rgba(0, 255, 135, 0) 70%);
   transform: translate(-50%, -50%);
   will-change: transform;
 }
 
 /* ---------- Gradient text ---------- */
 .gradient-text {
-  background: linear-gradient(120deg, #f2f2f5 0%, #a390ff 50%, #ff5c8a 100%);
+  background: linear-gradient(120deg, #eafbf3 0%, #00FF87 55%, #10b981 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -118,8 +119,16 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(0, 255, 135, 0.25);
   border-radius: 8px;
+}
+
+/* ---------- Cyber grid overlay ---------- */
+.cyber-grid {
+  background-image: linear-gradient(rgba(0, 255, 135, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 135, 0.07) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
 }
 
 /* ---------- Marquee ---------- */

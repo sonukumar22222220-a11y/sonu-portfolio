@@ -45,7 +45,7 @@ export default function SettingsPage() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
         <div>
           <h1 className="font-display text-3xl font-semibold mb-1">Settings</h1>
           <p className="text-white/40 text-sm">Edit content across the site.</p>
@@ -53,7 +53,7 @@ export default function SettingsPage() {
         <button
           onClick={publish}
           disabled={saving}
-          className="inline-flex items-center gap-2 rounded-full bg-white text-black text-sm font-medium px-5 py-2.5 hover:bg-white/90 transition-all disabled:opacity-50"
+          className="inline-flex items-center gap-2 rounded-full bg-accent text-black text-sm font-semibold shadow-[0_0_20px_rgba(0,255,135,0.3)] hover:shadow-[0_0_30px_rgba(0,255,135,0.5)] px-5 py-2.5 transition-all disabled:opacity-50"
         >
           <Save size={16} /> {saving ? "Publishing..." : "Save & Publish"}
         </button>
@@ -65,12 +65,12 @@ export default function SettingsPage() {
         </div>
       )}
 
-      <div className="flex gap-2 mb-8 border-b border-line">
+      <div className="flex gap-2 mb-8 border-b border-line overflow-x-auto">
         {TABS.map((t) => (
           <button
             key={t}
             onClick={() => setTab(t)}
-            className={`px-4 py-3 text-sm border-b-2 transition-colors -mb-px ${
+            className={`px-4 py-3 text-sm border-b-2 transition-colors -mb-px whitespace-nowrap ${
               tab === t ? "border-accent text-white" : "border-transparent text-white/40 hover:text-white/70"
             }`}
           >
@@ -81,7 +81,7 @@ export default function SettingsPage() {
 
       {tab === "About" && (
         <div className="glass rounded-2xl p-8 space-y-5 max-w-2xl">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Field label="Full Name">
               <input value={content.about.name} onChange={(e) => setContent({ ...content, about: { ...content.about, name: e.target.value } })} className={inputClass} />
             </Field>
@@ -108,7 +108,7 @@ export default function SettingsPage() {
               className={inputClass}
             />
           </Field>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <Field label="Years Experience">
               <input type="number" value={content.about.yearsExperience} onChange={(e) => setContent({ ...content, about: { ...content.about, yearsExperience: Number(e.target.value) } })} className={inputClass} />
             </Field>
@@ -201,7 +201,7 @@ export default function SettingsPage() {
                       <Trash2 size={16} />
                     </button>
                   </div>
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <input
                       value={exp.company}
                       onChange={(e) => {
@@ -282,7 +282,7 @@ export default function SettingsPage() {
                       <Trash2 size={16} />
                     </button>
                   </div>
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <input
                       value={edu.institution}
                       onChange={(e) => {

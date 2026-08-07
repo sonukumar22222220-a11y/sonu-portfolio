@@ -65,7 +65,7 @@ export default function Navbar({ name = "SONU KUMAR" }: { name?: string }) {
 
           <Link
             href="/contact"
-            className="hidden md:inline-flex items-center rounded-full bg-white text-black text-sm font-medium px-5 py-2.5 hover:bg-white/90 transition-colors"
+            className="hidden md:inline-flex items-center rounded-full bg-accent text-black text-sm font-semibold px-5 py-2.5 shadow-[0_0_18px_rgba(0,255,135,0.3)] hover:shadow-[0_0_28px_rgba(0,255,135,0.5)] transition-all"
           >
             Hire Me
           </Link>
