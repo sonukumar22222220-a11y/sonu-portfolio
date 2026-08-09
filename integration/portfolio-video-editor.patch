@@ -1,0 +1,10 @@
+*** Begin Patch
+*** Update File: app/admin/dashboard/portfolio/page.tsx
+@@
+ import CloudinaryUploader from "@/components/CloudinaryUploader";
++import VideoEditor from "@/components/VideoEditor";
+@@
+                 {editing.videoUrl && <p className="text-xs text-white/30 mt-2 truncate">{editing.videoUrl}</p>}
+               </div>
++              <VideoEditor project={editing} onChange={setEditing} />
+*** End Patch

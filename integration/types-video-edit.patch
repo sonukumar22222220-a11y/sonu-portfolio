@@ -1,0 +1,12 @@
+*** Begin Patch
+*** Update File: lib/types.ts
+@@
+ export interface Project {
+@@
+   videoUrl?: string;
++  videoEdit?: {
++    start: number;
++    end: number;
++    speed: number;
++  };
+*** End Patch
